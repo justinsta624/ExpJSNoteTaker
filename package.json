@@ -1,14 +1,23 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Express.js: Note Taker",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [],
+  "author": "Hanbyeol(Justin)Lee",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justinsta624/ExpJSNoteTaker"
   }
 }
