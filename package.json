@@ -1,23 +1,29 @@
 {
-  "name": "note-taker",
+  "name": "express.js-notetaker",
   "version": "1.0.0",
-  "description": "Express.js: Note Taker",
+  "description": "express.js challenge: note taker",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "Hanbyeol(Justin)Lee",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "jest": "^26.0.1"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/justinsta624/ExpJSNoteTaker"
+    "url": "git+https://github.com/justinsta624/ExpJSNoteTaker.git"
+  },
+  "keywords": [
+    "expjsnotetaker"
+  ],
+  "author": "Hanbyeol (Justin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justinsta624/ExpJSNoteTaker/issues"
+  },
+  "homepage": "https://github.com/justinsta624/ExpJSNoteTaker#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "util": "^0.12.5"
   }
 }

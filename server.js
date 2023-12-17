@@ -2,7 +2,7 @@ const express = require('express');
 const api = require('./routes/apiRouter');
 const html = require('./routes/htmlRouter')
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const app = express();
 
@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
-app.use('/', html);
+app.use('/html', html);
 
 app.use(express.static('public'));
 
