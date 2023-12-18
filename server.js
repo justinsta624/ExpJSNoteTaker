@@ -4,7 +4,7 @@ const app = express();
 const htmlRouter = require('./routes/htmlRouter');
 const apiRouter = require('./routes/apiRouter');
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3004;
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
