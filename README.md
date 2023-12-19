@@ -65,14 +65,14 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 right-hand column
 ```
 
-## Helpful SVG Resources
+## Helpful Resources for this challenge
 
-* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
-* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
-* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
-* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
-* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
-* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
+* [How to deploy Heroku?](https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide)
+* [Express.js: Response method](https://expressjs.com/en/guide/routing.html#response-methods)
+* [Express.js: Route paths](https://expressjs.com/en/guide/routing.html#route-paths)
+* [Express.Router](https://expressjs.com/en/guide/routing.html#express-router)
+* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
+* [Heroku with node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
 
 ## Review
 
