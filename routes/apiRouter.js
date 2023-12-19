@@ -1,66 +1,46 @@
-const fs = require("fs");
-const util = require("util");
-const express = require("express");
+const express = require('express').Router();
+const store = require('../db/store')
 
-const app = express.Router();
-const writeFileAsync = util.promisify(fs.writeFile);
-const readFileAsync = util.promisify(fs.readFile);
-
-let notesDB;
-
-// Read notes from JSON file
-function readNotesFile() {
-  return readFileAsync("db/db.json", "utf8").then(data => {
-    notesDB = JSON.parse(data);
-  });
-}
-
-// Write notes to JSON file
-function writeNotesFile() {
-  const noteJSON = JSON.stringify(notesDB, null, 2);
-  return writeFileAsync("db/db.json", noteJSON);
-}
-
-// GET request
-app.get("/notes", (req, res) => {
-  readNotesFile().then(() => {
-    res.json(notesDB);
+// GET "/api/notes" responds with all notes from the database
+router.get('/notes', (req, res) => {
+  store.readNotesFile().then(() => {
+    res.json(store.notesDB);
   });
 });
 
-// POST request
-app.post("/notes", (req, res) => {
-  readNotesFile().then(() => {
+// POST "/api/notes" adds a new note to the database
+router.post('/notes', (req, res) => {
+  store.readNotesFile().then(() => {
     const newNote = req.body;
-    newNote.id = notesDB.length + 1;
+    newNote.id = store.notesDB.length + 1;
 
-    notesDB.push(newNote);
+    store.notesDB.push(newNote);
 
-    writeNotesFile().then(() => {
+    store.writeNotesFile().then(() => {
       console.log("Note has been added.");
-      res.json(notesDB);
+      res.json(store.notesDB);
     });
   });
 });
 
-// DELETE request
-app.delete("/notes/:id", (req, res) => {
+// DELETE "/api/notes/:id" deletes the note with an id equal to req.params.id
+router.delete('/notes/:id', (req, res) => {
   const selID = parseInt(req.params.id);
 
-  for (let i = 0; i < notesDB.length; i++) {
-    if (selID === notesDB[i].id) {
-        notesDB.splice(i, 1);
+  for (let i = 0; i < store.notesDB.length; i++) {
+    if (selID === store.notesDB[i].id) {
+      store.notesDB.splice(i, 1);
 
-      writeNotesFile().then(() => {
+      store.writeNotesFile().then(() => {
         console.log("Note has been deleted.");
-        res.json(notesDB);
+        res.json(store.notesDB);
       });
 
       return; // Exit the loop after deletion
     }
   }
 
-  res.json(notesDB);
+  res.json(store.notesDB);
 });
 
-module.exports = app;
+module.exports = router;
