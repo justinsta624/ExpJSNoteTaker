@@ -1,14 +1,3 @@
-const express = require('express');
-const app = express();
-
-const apiRouter = require('./api');
-const htmlRouter = require('./html');
-
-app.use('/api', apiRouter);
-app.use('/html', htmlRouter);
-
-module.exports = app;
-
 let noteForm;
 let noteTitle;
 let noteText;
