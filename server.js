@@ -4,7 +4,7 @@ const app = express();
 const apiRouter = require("./routes/apiRouter");
 const htmlRouter = require("./routes/htmlRouter");
 
-const PORT = process.env.PORT || 3004;
+const PORT = process.env.PORT || 3005;
 
 app.use(express.json());
 app.use(express.static("public"));

@@ -1,5 +1,5 @@
 const apiRouter = require("express").Router();
-const store = require("../db/store");
+const store = require("../node_modules/store");
 
 // GET "/api/notes" responds with all notes from the database
 apiRouter.get("/notes", (req, res) => {
@@ -9,7 +9,7 @@ apiRouter.get("/notes", (req, res) => {
 });
 
 // POST "/api/notes" adds a new note to the database
-apiRouter.post('/notes', (req, res) => {
+apiRouter.post("/notes", (req, res) => {
   store.readNotesFile().then((notes) => {
     const newNote = req.body;
     newNote.id = notes.length + 1;
@@ -24,7 +24,7 @@ apiRouter.post('/notes', (req, res) => {
 });
 
 // DELETE "/api/notes/:id" deletes the note with an id equal to req.params.id
-apiRouter.delete('/notes/:id', (req, res) => {
+apiRouter.delete("/notes/:id", (req, res) => {
   const selID = parseInt(req.params.id);
 
   store.readNotesFile().then((notes) => {
