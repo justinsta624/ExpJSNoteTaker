@@ -4,7 +4,7 @@ const app = express();
 const apiRouter = require("./routes/apiRouter");
 const htmlRouter = require("./routes/htmlRouter");
 
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3008;
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -14,4 +14,4 @@ app.use("/", htmlRouter);
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`)
-});
+}); 
