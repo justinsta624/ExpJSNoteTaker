@@ -12,7 +12,7 @@
 Followings are the outcomes of the challenge 11:
 
 * The URL of the functional, deployed application </br>
-[Functional deployed application](https://dashboard.heroku.com/apps/expjsnotetaker) </br>
+[Functional deployed application](https://expjsnotetaker-4a7157f09c49.herokuapp.com/) </br>
 </br>
 
 * The URL of the GitHub repository, with a unique name and a README describing the project </br>
