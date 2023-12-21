@@ -1,47 +1,53 @@
 const apiRouter = require("express").Router();
-const store = require("../node_modules/store");
+const fs = require("fs");
+const { v4: uuid } = require("uuid");
 
 // GET "/api/notes" responds with all notes from the database
 apiRouter.get("/notes", (req, res) => {
-  store.readNotesFile().then((notes) => {
-    res.json(notes);
-  });
+  console.log("note has added successfully!");
+  fs.readFile('./db/db.json', 'utf8', (error, notes) => {
+    console.log(notes)
+    error ? console.error(error) : res.json(JSON.parse(notes))
+  }
+  );
 });
 
 // POST "/api/notes" adds a new note to the database
 apiRouter.post("/notes", (req, res) => {
-  store.readNotesFile().then((notes) => {
-    const newNote = req.body;
-    newNote.id = notes.length + 1;
-
-    notes.push(newNote);
-
-    store.writeNotesFile(notes).then(() => {
-      console.log("Note has been added.");
-      res.json(notes);
+  const { title, text } = req.body;
+  if (title && text) {
+    const newNote = {
+      title,
+      text,
+      id: uuid()
+    };
+    fs.readFile('./db/db.json', 'utf8', (error, notes) => {
+      console.log(notes)
+      error ? console.error(error) : res.json(JSON.parse(notes))
+      let output = JSON.parse(notes);
+      output.push(newNote);
+      fs.writeFile('./db/db.json', JSON.stringify(output), (error) => {
+        console.log(notes)
+        error ? console.error(error) : res.json(JSON.parse(notes))
+        res.json(newNote);
+      });
     });
-  });
+  };
 });
 
-// DELETE "/api/notes/:id" deletes the note with an id equal to req.params.id
-apiRouter.delete("/notes/:id", (req, res) => {
-  const selID = parseInt(req.params.id);
-
-  store.readNotesFile().then((notes) => {
-    for (let i = 0; i < notes.length; i++) {
-      if (selID === notes[i].id) {
-        notes.splice(i, 1);
-
-        store.writeNotesFile(notes).then(() => {
-          console.log("Note has been deleted.");
-          res.json(notes);
-        });
-
-        return; // Exit the loop after deletion
-      }
-    }
-
-    res.json(notes);
+apiRouter.delete("/notes/:id", (req, res)=>{
+  console.log(req.params.id);
+  fs.readFile('./db/db.json', 'utf8', (error, notes) => {
+    console.log(notes)
+    error ? console.error(error) : res.json(JSON.parse(notes))
+      let output = JSON.parse(notes);
+      const SavedNote = output.filter((note) => note.id !== req.params.id);
+      console.log(SavedNote)
+      fs.writeFile('./db/db.json', JSON.stringify(output), (error) => {
+        console.log(notes)
+        error ? console.error(error) : res.json(JSON.parse(notes))
+          res.json(SavedNote);
+      });
   });
 });
 
