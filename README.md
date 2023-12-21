@@ -3,9 +3,9 @@
 ![Contributor](https://img.shields.io/badge/Contributor-HanbyeolLee-purple)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/license/MIT)
 ![GitHub](https://img.shields.io/badge/GitHub-justinsta624-yellow)
-![Test](https://img.shields.io/badge/Test-Jest@29.7.0-green)
-![BackEnd](https://img.shields.io/badge/BackEnd-Express-magenta)
-![Module](https://img.shields.io/badge/Module-Path@0.12.7-red)
+![PaaS](https://img.shields.io/badge/PaaS-Heroku-green)
+![BackEnd](https://img.shields.io/badge/BackEnd-Express@4.18.2-magenta)
+![database](https://img.shields.io/badge/database-JSON-red)
 
 ## Outcome
 
